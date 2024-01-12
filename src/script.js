@@ -11,9 +11,9 @@ const fixnav = header.offsetTop;
 // Navbar fixed
 function handleScroll() {
     if (window.pageYOffset > fixnav) {
-        header.classList.add('sticky', 'z-50');
+        header.classList.add('fixed', 'z-50');
     } else {
-        header.classList.remove('sticky', 'z-50');
+        header.classList.remove('fixed', 'z-50');
     }
 }
 
@@ -21,8 +21,8 @@ window.addEventListener('scroll', handleScroll);
 
 function animateNumber(targetElement, initialValue, finalValue) {
     let currentValue = initialValue;
-    const increment = Math.ceil((finalValue - initialValue) / 100); // Increment setiap langkah animasi
-    const delay = 30; // Delay antara langkah animasi (ms)
+    const increment = Math.ceil((finalValue - initialValue) / 130); // Increment setiap langkah animasi
+    const delay = 50; // Delay antara langkah animasi (ms)
 
     function updateValue() {
         targetElement.innerText = currentValue + '+';
@@ -52,7 +52,7 @@ animateNumber(santriCountElement, 0, finalSantriCount);
 animateNumber(materiCountElement, 0, finalMateriCount);
 animateNumber(mentorCountElement, 0, finalMentorCount);
 
-
+//testimonial 
 var cardtest1 = document.getElementById('cardtest1');
 var cardtest2 = document.getElementById('cardtest2');
 var cardtest3 = document.getElementById('cardtest3');
@@ -67,6 +67,7 @@ function readmoretoogle(num) {
     var readmore = document.getElementById('readmore' + num);
     var close = document.getElementById('close' + num);
     var avatar = document.getElementById('avatar' + num);
+    var morecard = document.getElementById('morecard');
 
     box.classList.remove('h-1/2');
     box.classList.add('h-max');
@@ -78,6 +79,7 @@ function readmoretoogle(num) {
     avatar.classList.add('w-1/6');
     card.classList.remove(`w-11/12`);
     card.classList.add('w-full');
+    morecard.classList.add('hidden');
 
     // Hide other cards
     for (let i = 1; i <= 6; i++) {
@@ -94,6 +96,7 @@ function closetoogle(num) {
     var readmore = document.getElementById('readmore' + num);
     var close = document.getElementById('close' + num);
     var avatar = document.getElementById('avatar' + num);
+    var morecard = document.getElementById('morecard');
 
     box.classList.add('h-1/2');
     box.classList.remove('h-max');
@@ -105,6 +108,7 @@ function closetoogle(num) {
     avatar.classList.remove('w-1/6');
     card.classList.add(`w-11/12`);
     card.classList.remove('w-full');
+    morecard.classList.remove('hidden');
 
     // Show all cards
     for (let i = 1; i <= 6; i++) {
@@ -116,12 +120,12 @@ function morecard() {
     const arrowicon = document.getElementById('arrowicon');
 
     // Ganti ikon panah
-    arrowicon.setAttribute('name', arrowicon.getAttribute('name') === 'chevron-up' ? 'chevron-down' : 'chevron-up');
+    arrowicon.setAttribute('name', arrowicon.getAttribute('name') === 'chevron-down' ? 'chevron-up' : 'chevron-down');
 
     // Show all cards
     for (let i = 4; i <= 6; i++) {
         document.getElementById(`cardtest` + i).classList.toggle('hidden');
-        
+
     }
     // Toggle "Cerita Lainnya" and "Tutup" text
     const moreCardText = document.getElementById('morecardtext');
