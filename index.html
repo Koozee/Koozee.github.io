@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../src/img/logonya 1.svg" rel="shorcut icon">
+    <title>IslamSphere - Homepage</title>
+    <style>
+        .cts {
+            position: relative;
+            padding: 10px 20px;
+            border-radius: 7px;
+            border: 1px solid rgb(61, 106, 255);
+            font-size: 14px;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 2px;
+            background: transparent;
+            color: white;
+            overflow: hidden;
+            box-shadow: 0 0 0 0 transparent;
+            -webkit-transition: all 0.2s ease-in;
+            -moz-transition: all 0.2s ease-in;
+            transition: all 0.2s ease-in;
+        }
+
+        .cts:hover {
+            background: rgb(61, 106, 255);
+            box-shadow: 0 0 30px 5px rgba(0, 142, 236, 0.815);
+            -webkit-transition: all 0.2s ease-out;
+            -moz-transition: all 0.2s ease-out;
+            transition: all 0.2s ease-out;
+        }
+
+        .cts:hover::before {
+            -webkit-animation: sh02 0.5s 0s linear;
+            -moz-animation: sh02 0.5s 0s linear;
+            animation: sh02 0.5s 0s linear;
+        }
+
+        .cts::before {
+            content: '';
+            display: block;
+            width: 0px;
+            height: 86%;
+            position: absolute;
+            top: 7%;
+            left: 0%;
+            opacity: 0;
+            background: #fff;
+            box-shadow: 0 0 50px 30px #fff;
+            -webkit-transform: skewX(-20deg);
+            -moz-transform: skewX(-20deg);
+            -ms-transform: skewX(-20deg);
+            -o-transform: skewX(-20deg);
+            transform: skewX(-20deg);
+        }
+
+        @keyframes sh02 {
+            from {
+                opacity: 0;
+                left: 0%;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
+                left: 100%;
+            }
+        }
+
+        .cts:active {
+            box-shadow: 0 0 0 0 transparent;
+            -webkit-transition: box-shadow 0.2s ease-in;
+            -moz-transition: box-shadow 0.2s ease-in;
+            transition: box-shadow 0.2s ease-in;
+        }
+
+        .poppins {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .lato {
+            font-family: 'Lato', sans-serif;
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato&family=Montserrat:wght@400;700&family=Poppins&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="bg-gradient-to-r from-neutral-100 via-slate-200 to-slate-300 overflow-x-hidden">
+    <!-- header start -->
+    <header class="poppins w-full h-max top-0 bg-gradient-to-l from-blue-500 via-blue-400 to-cyan-500">
+        <nav class="container flex justify-around items-center h-max max-w-full">
+            <a href="../src/index.html"><img class="w-[20vw] md:w-[10vw]" src="../src/img/logonya.png" alt="logo"></a>
+            <div id="navmenu"
+                class="absolute z-50 hidden md:block top-[20vw] w-screen md:relative md:top-0 md:w-max bg-blue-500 md:bg-transparent px-4">
+                <ul class="py-5 md:py-0 flex text-white flex-col md:flex-row md:items-center gap-5 md:text-lg">
+                    <li class="group font-semibold transition ease-in duration-300 hover:text-blue-900"><a
+                            href="../src/index.html">Home</a>
+                    </li>
+                    <li @click.away="open = false"
+                        class="group relative cursor-pointer font-semibold transition ease-in duration-300 hover:text-blue-900"
+                        x-data="{ open: false }">
+                        <button @click="open = !open" class="flex flex-row items-center w-full">
+                            <span>Kategori Pendidikan</span>
+                            <svg fill="currentColor" viewBox="0 0 20 20"
+                                :class="{'rotate-180': open, 'rotate-0': !open}"
+                                class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1">
+                                <path fill-rule="evenodd"
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </button>
+                        <div x-show="open" x-transition:enter="transition ease-out duration-100"
+                            x-transition:enter-start="transform opacity-0 scale-95"
+                            x-transition:enter-end="transform opacity-100 scale-100"
+                            x-transition:leave="transition ease-in duration-75"
+                            x-transition:leave-start="transform opacity-100 scale-100"
+                            x-transition:leave-end="transform opacity-0 scale-95"
+                            class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg md:w-48">
+                            <div
+                                class="flex w-full flex-col bg-gradient-to-l from-blue-500 via-blue-400 to-cyan-500 py-1 px-4 shadow-xl">
+                                <a class="text-white transition ease-in duration-300 hover:text-blue-900 my-2 block border-b border-gray-100 py-1 md:mx-2"
+                                    href="#">Pendidikan Anak</a>
+                                <a class="text-white transition ease-in duration-300 hover:text-blue-900 my-2 block border-b border-gray-100 py-1 md:mx-2"
+                                    href="#">Pendidikan Remaja</a>
+                                <a class="text-white transition ease-in duration-300 hover:text-blue-900 my-2 block py-1 md:mx-2"
+                                    href="#">Pendidikan Dewasa</a>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="group font-semibold transition ease-in duration-300 hover:text-blue-900"><a
+                            href="">Insight</a>
+                    </li>
+                    <li class="group font-semibold transition ease-in duration-300 hover:text-blue-900"><a
+                            href="../src/islampedia.html">Islampedia</a></li>
+                    <li class="group font-semibold transition ease-in duration-300 hover:text-blue-900"><a
+                            href="">Kontak</a>
+                    </li>
+                    <li class="group hidden md:block"><a href="#"><button class="cts">
+                                Bergabung
+                            </button></a></li>
+                </ul>
+            </div>
+            <ion-icon id="menu" class="md:hidden cursor-pointer text-white" onclick="onToogleNav(this)" size="large"
+                name="menu-sharp"></ion-icon>
+        </nav>
+    </header>
+
+    <!-- hero section -->
+    <main class="bg-no-repeat bg-cover py-32 lg:py-96 w-full h-max flex items-center"
+        style="background-image:url(../src/img/ahd93y-lZOGde6okcA-unsplash.jpg);">
+        <div class="container w-max h-max flex flex-col lg:flex-row gap-5 mx-auto">
+            <div class="montserrat text-white h-max px-3 flex flex-wrap">
+                <h2 class="text-4xl py-4 font-bold">Selamat datang di IslamSphere</h2>
+                <h3 class="text-2xl py-2 font-medium">Sumber Pencerahan dan Belajar Islam Terkini!</h3>
+                <h1 class="text-xl py-4 font-normal">Kami adalah oase pengetahuan yang menghubungkan nilai-nilai Islam
+                    dengan ilmu pengetahuan modern. Temukan kekayaan pendidikan kami yang disesuaikan untuk segala usia,
+                    mulai dari "Pendidikan Anak," "Pendidikan Remaja," hingga "Pendidikan Dewasa." Mari bersama-sama
+                    menjelajahi harmoni antara tradisi Islam dan kemajuan ilmu pengetahuan. Selamat bergabung di
+                    IslamSphere, tempat Islam ada di hati dan ilmu pengetahuan ada di pikiran.</h1>
+                <ul class="hidden lg:grid lg:grid-cols-2 lg:gap-5 lg:mt-10">
+                    <li><a class="w-max font-bold text-yellow-400 bg-green-600 shadow-lg py-6 px-10 text-xl rounded-xl transition-all duration-200 ease-linear hover:underline hover:bg-yellow-400 hover:text-green-600"
+                            href="">Daftar Sekarang</a></li>
+                    <li><a class="w-max font-bold text-green-600 bg-yellow-400 shadow-lg py-6 px-10 text-xl rounded-xl transition-all duration-200 ease-linear hover:underline hover:bg-green-600 hover:text-yellow-400 "
+                            href="">Masuk</a></li>
+                </ul>
+            </div>
+            <ul class="flex gap-10 mx-auto mt-10 lg:hidden">
+                <li><a class="w-max font-bold text-yellow-400 bg-green-600 shadow-lg py-6 px-7 text-lg rounded-xl transition-all duration-200 ease-linear hover:underline hover:bg-yellow-400 hover:text-green-600"
+                        href="">Daftar Sekarang</a></li>
+                <li><a class="w-max font-bold text-green-600 bg-yellow-400 shadow-lg py-6 px-7 text-lg rounded-xl transition-all duration-200 ease-linear hover:underline hover:bg-green-600 hover:text-yellow-400 "
+                        href="">Masuk</a></li>
+            </ul>
+            <img class="w-2/3 lg:w-[45%] xl:w-1/2 max-w-2xl bg-slate-200 mx-auto mt-16 lg:mt-0 bg-opacity-10 rounded-lg"
+                src="../src/img/hero.svg" alt="">
+        </div>
+    </main>
+    <section class="bg-yellow-400 rounded-md shadow-md w-max py-16 px-10 mx-auto relative bottom-20">
+        <div class="container flex flex-col lg:flex-row justify-center items-center w-max mx-auto gap-10">
+            <div class="text-center text-white">
+                <p id="santriCount" class="text-2xl lg:text-3xl font-extrabold py-3">0</p>
+                <p class="text-xl md:text-3xl font-medium">Santri bergabung</p>
+            </div>
+            <div class="text-center text-white">
+                <p id="materiCount" class="text-2xl lg:text-3xl font-extrabold py-3">0</p>
+                <p class="text-xl md:text-2xl lg:text-3xl font-medium">Materi pembelajaran berkualitas</p>
+            </div>
+            <div class="text-center text-white">
+                <p id="mentorCount" class="text-2xl lg:text-3xl font-extrabold py-3">0</p>
+                <p class="text-xl md:text-2xl lg:text-3xl font-medium">Mentor yang ahli di bidangnya</p>
+            </div>
+        </div>
+    </section>
+    <!-- end hero section  -->
+
+
+    <!-- section service -->
+    <article class="w-full mt-10 text-slate-950">
+        <div class="container mx-auto text-center px-3">
+            <h1 class="text-xl md:text-3xl lg:text-4xl font-bold py-2">Kenapa Harus Belajar Bersama IslamSphere?</h1>
+            <h2 class="text-lg md:text-xl lg:text-2xl font-semibold py-2">Lebih mudah belajar online dan mendalami
+                nilai-nilai Islam</h2>
+        </div>
+        <section class="montserrat mt-10 w-full mx-auto">
+            <div class="container mx-auto lg:grid lg:grid-cols-3 lg:grid-rows-2 lg:gap-5 p-5">
+                <div
+                    class="flex flex-col justify-center items-center text-center border-2 border-slate-100 p-5 shadow-lg rounded-md shadow-slate-300 ring-1 transition ease-in-out delay-150 hover:-translate-y-5 hover:scale-105 duration-300">
+                    <img class="w-64 h-64" src="../src/img/quran.jpg" alt="">
+                    <div class="py-4">
+                        <p class="font-bold text-lg">Peningkatan Pemahaman Agama Islam</p>
+                        <p class="font-medium py-2">"Dengan penekanan pada pemahaman agama yang mendalam, IslamSphere
+                            menjadi panduan untuk
+                            memahami nilai-nilai Islam dalam konteks kontemporer."</p>
+                    </div>
+                </div>
+                <div
+                    class="mt-10 lg:mt-0 flex flex-col justify-center items-center text-center border-2 border-slate-100 p-5 shadow-lg rounded-md shadow-slate-300 ring-1 transition ease-in-out delay-150 hover:-translate-y-5 hover:scale-105 duration-300">
+                    <img class="w-64 h-64" src="../src/img/kids.svg" alt="">
+                    <div class="py-3">
+                        <p class="font-bold text-lg">Pengalaman Pembelajaran
+                            Positif untuk Anak-Anak</p>
+                        <p class="font-medium py-2">"IslamSphere menawarkan pengalaman pembelajaran yang positif untuk
+                            anak-anak, dengan
+                            sumber daya edukatif yang dirancang khusus untuk menarik minat mereka."</p>
+                    </div>
+                </div>
+                <div
+                    class="mt-10 lg:mt-0 flex flex-col justify-center items-center text-center border-2 border-slate-100 p-4 shadow-lg rounded-md shadow-slate-300 ring-1 transition ease-in-out delay-150 hover:-translate-y-5 hover:scale-105 duration-300">
+                    <img class="w-64 h-64" src="../src/img/adult.svg" alt="">
+                    <div class="py-4">
+                        <p class="font-bold text-lg">Pendidikan Berkelanjutan untuk Remaja dan Dewasa</p>
+                        <p class="font-medium py-2">"Berkomitmen untuk memberikan pendidikan yang berkelanjutan,
+                            IslamSphere memenuhi
+                            kebutuhan pendidikan remaja dan dewasa, membantu mereka tumbuh dan berkembang di setiap
+                            tahap kehidupan."</p>
+                    </div>
+                </div>
+                <div
+                    class="mt-10 lg:mt-0 flex flex-col justify-center items-center text-center border-2 border-slate-100 p-5 shadow-lg rounded-md shadow-slate-300 ring-1 transition ease-in-out delay-150 hover:-translate-y-5 hover:scale-105 duration-300">
+                    <img class="w-64 h-64" src="../src/img/elearning.svg" alt="">
+                    <div class="py-4">
+                        <p class="font-bold text-lg">Pengalaman Positif dengan Kursus Online</p>
+                        <p class="font-medium py-2">"Dengan kursus online berkualitas tinggi, IslamSphere membawa
+                            pengguna ke dunia
+                            pembelajaran virtual yang interaktif, memungkinkan akses yang mudah dan pembelajaran yang
+                            berfokus."</p>
+                    </div>
+                </div>
+                <div
+                    class="mt-10 lg:mt-0 flex flex-col justify-center items-center text-center border-2 border-slate-100 p-5 shadow-lg rounded-md shadow-slate-300 ring-1 transition ease-in-out delay-150 hover:-translate-y-5 hover:scale-105 duration-300">
+                    <img class="w-64 h-64" src="../src/img/savemoney.svg" alt="">
+                    <div class="py-4">
+                        <p class="font-bold text-lg">Biaya yang Terjangkau</p>
+                        <p class="font-medium py-2">"Dengan banyaknya ilmu dan fasilitas yang didapat, biaya belajar di
+                            IslamSphere tergolong terjangkau, sehingga Anda dapat menghemat uang Anda."</p>
+                    </div>
+                </div>
+                <div
+                    class="mt-10 lg:mt-0 flex flex-col justify-center items-center text-center border-2 border-slate-100 p-5 shadow-lg rounded-md shadow-slate-300 ring-1 transition ease-in-out delay-150 hover:-translate-y-5 hover:scale-105 duration-300">
+                    <img class="w-64 h-64" src="../src/img/community.jpg" alt="">
+                    <div class="py-4">
+                        <p class="font-bold text-lg">Komunitas Pembelajaran Aktif</p>
+                        <p class="font-medium py-2">"Bergabunglah dengan komunitas pembelajaran aktif kami di
+                            IslamSphere, di mana Anda tidak
+                            hanya belajar sendiri, tetapi juga tumbuh bersama-sama dengan dukungan dan inspirasi dari
+                            sesama peserta."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </article>
+    <!-- end service-section -->
+
+    <!-- section testimonial -->
+    <section class="mt-16 mx-auto">
+        <div class="container text-center mx-auto">
+            <p class="text-3xl font-semibold">Cerita Alumni Santri IslamSphere</p>
+            <p class="text-xl py-4 font-medium">Testimoni dari Santri setelah belajar bersama IslamSphere</p>
+        </div>
+
+        <article class="w-4/5 mt-16 mx-auto">
+            <div class="container flex flex-col mx-auto gap-10">
+                <div
+                    class="container w-full flex flex-col justify-center items-center gap-16 lg:flex-row lg:gap-5 mx-auto">
+
+                    <div id="cardtest1" class="relative bg-slate-300 shadow-lg shadow-slate-300 rounded-md w-11/12">
+                        <div id="box1" class=" flex flex-col h-1/2 p-6 bg-yellow-400 rounded-md">
+                            <img class="absolute -top-10" width="64" height="64"
+                                src="https://img.icons8.com/arcade/64/000000/quote-left.png" alt="quote-left" />
+                            <p id="text1" class=" font-medium ">IslamSphere membantu saya menyatukan keyakinan dengan
+                                pengetahuan teknologi. Kursus online membantu kembangkan keterampilan!</p>
+                            <p id="textmore1" class="textmore hidden mt-5 font-medium">
+                                Sebagai mahasiswa teknik informatika, saya selalu mencari sumber daya pendidikan yang
+                                sejalan dengan keyakinan saya. IslamSphere memberikan jawaban atas pencarian saya.
+                                Materi-materi pendidikan mereka tidak hanya relevan dengan studi saya, tetapi juga
+                                memberikan perspektif unik tentang bagaimana teknologi dapat diintegrasikan dengan
+                                nilai-nilai Islam. Kursus online yang mereka tawarkan sangat membantu dalam pengembangan
+                                keterampilan saya.
+                            </p>
+                            <a onclick="readmoretoogle(1)" id="readmore1"
+                                class=" font-bold text-blue-700 italic cursor-pointer hover:text-blue-900">baca
+                                selengkapnya</a>
+                            <a onclick="closetoogle(1)" id="close1"
+                                class=" hidden font-bold text-blue-700 italic cursor-pointer hover:text-blue-900">tutup</a>
+                        </div>
+                        <div class="flex items-center justify-center pb-10 ml-5 gap-3 mt-8">
+                            <img id="avatar1" src="../src/img/avatar1.svg" class="rounded-full w-1/3" alt="profile1">
+                            <div class="flex flex-col">
+                                <p class="font-semibold text-lg text-blue-800">Ani</p>
+                                <p class="font-normal">20 Tahun</p>
+                                <p class="font-semibold">Mahasiswa Teknik Informatika</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="cardtest2" class="relative bg-slate-300 shadow-lg shadow-slate-300 rounded-md w-11/12">
+                        <div id="box2" class="flex flex-col h-1/2 p-6 bg-yellow-400 rounded-md">
+                            <img class="absolute -top-10" width="64" height="64"
+                                src="https://img.icons8.com/arcade/64/000000/quote-left.png" alt="quote-left" />
+                            <p id="text2" class="font-medium">IslamSphere adalah penyelamat saya sebagai ibu rumah
+                                tangga.
+                                Materi
+                                pendidikan anak mereka
+                                sangat mendidik dan menghibur!</p>
+                            <p id="textmore2" class="hidden mt-5 font-medium">
+                                Sebagai ibu rumah tangga, saya sering kesulitan menemukan sumber daya pendidikan yang
+                                sesuai untuk anak-anak saya. IslamSphere telah menjadi penyelamat bagi saya.
+                                Materi-materi pendidikan anak mereka tidak hanya mendidik, tetapi juga menghibur. Mereka
+                                memahami kebutuhan keluarga dan memberikan panduan yang sangat bermanfaat. Saya merasa
+                                lebih percaya diri dalam memberikan pendidikan yang bermakna kepada anak-anak saya.
+                            </p>
+                            <a onclick="readmoretoogle(2)" id="readmore2"
+                                class="font-bold text-blue-700 italic cursor-pointer hover:text-blue-900">baca
+                                selengkapnya</a>
+                            <a onclick="closetoogle(2)" id="close2"
+                                class="hidden font-bold text-blue-700 italic cursor-pointer hover:text-blue-900">tutup</a>
+                        </div>
+                        <div class="flex items-center justify-center pb-10 ml-5 gap-3 mt-8">
+                            <img id="avatar2" src="../src/img/avatar2.svg" class="rounded-full w-1/3" alt="profile1">
+                            <div class="flex flex-col">
+                                <p class="font-semibold text-lg text-blue-800">Siti</p>
+                                <p class="font-normal">35 Tahun</p>
+                                <p class="font-semibold">Ibu Rumah Tangga</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="cardtest3" class="relative bg-slate-300 shadow-lg shadow-slate-300 rounded-md w-11/12">
+                        <div id="box3" class="flex flex-col h-1/2 p-6 bg-yellow-400 rounded-md">
+                            <img class="absolute -top-10" width="64" height="64"
+                                src="https://img.icons8.com/arcade/64/000000/quote-left.png" alt="quote-left" />
+                            <p id="text3" class="font-medium">IslamSphere menyenangkan! Saya suka gambar-gambarnya dan
+                                video
+                                pendidikannya. Saya tahu
+                                banyak tentang Islam dan lainnya!</p>
+                            <p id="textmore3" class="hidden mt-5 font-medium">
+                                IslamSphere benar-benar menyenangkan! Saya senang belajar di sini karena
+                                gambar-gambarnya dan video pendidikannya membuat materi-materi tersebut lebih mudah
+                                dimengerti. Saya sekarang tahu banyak tentang Islam dan banyak hal lainnya. Guru-guru
+                                mereka hebat!
+                            </p>
+                            <a onclick="readmoretoogle(3)" id="readmore3"
+                                class="font-bold text-blue-700 italic cursor-pointer hover:text-blue-900">baca
+                                selengkapnya</a>
+                            <a onclick="closetoogle(3)" id="close3"
+                                class="hidden font-bold text-blue-700 italic cursor-pointer hover:text-blue-900">tutup</a>
+                        </div>
+                        <div class="flex items-center justify-center pb-10 ml-5 gap-3 mt-8">
+                            <img id="avatar3" src="../src/img/avatar3.svg" class="rounded-full w-1/3" alt="profile1">
+                            <div class="flex flex-col">
+                                <p class="font-semibold text-lg text-blue-800">Muhammad</p>
+                                <p class="font-normal">8 Tahun</p>
+                                <p class="font-semibold">Pelajar SD</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container w-full flex flex-col justify-center items-center gap-16 lg:flex-row lg:gap-5 mx-auto">
+                    <div id="cardtest4"
+                        class="hidden relative bg-slate-300 shadow-lg shadow-slate-300 rounded-md w-11/12">
+                        <div id="box4" class="flex flex-col h-1/2 p-6 bg-yellow-400 rounded-md">
+                            <img class="absolute -top-10" width="64" height="64"
+                                src="https://img.icons8.com/arcade/64/000000/quote-left.png" alt="quote-left" />
+                            <p id="text4" class="font-medium">IslamSphere menjadi mitra pendidikan berharga saya.
+                                Materi
+                                pendidikan remaja mereka memberikan wawasan tentang menghadapi tantangan di masa depan!
+                            </p>
+                            <p id="textmore4" class="hidden mt-5 font-medium">
+                                IslamSphere telah menjadi mitra pendidikan yang sangat berharga bagi saya.
+                                Materi-materi pendidikan remaja mereka tidak hanya mengajarkan konsep-konsep akademis,
+                                tetapi juga memberikan wawasan tentang bagaimana menghadapi tantangan di masa depan.
+                                Saya merasa lebih siap untuk melangkah ke dunia yang lebih luas setelah mendapatkan
+                                pembelajaran yang bervariasi dan terkini.
+                            </p>
+                            <a onclick="readmoretoogle(4)" id="readmore4"
+                                class="font-bold text-blue-700 italic cursor-pointer hover:text-blue-900">baca
+                                selengkapnya</a>
+                            <a onclick="closetoogle(4)" id="close4"
+                                class="hidden font-bold text-blue-700 italic cursor-pointer hover:text-blue-900">tutup</a>
+                        </div>
+                        <div class="flex items-center justify-center pb-10 ml-5 gap-3 mt-8">
+                            <img id="avatar4" src="../src/img/avatar4.svg" class="rounded-full w-1/3" alt="profile1">
+                            <div class="flex flex-col">
+                                <p class="font-semibold text-lg text-blue-800">Rizki</p>
+                                <p class="font-normal">17 Tahun</p>
+                                <p class="font-semibold">Pelajar SMA</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="cardtest5"
+                        class="hidden relative bg-slate-300 shadow-lg shadow-slate-300 rounded-md w-11/12">
+                        <div id="box5" class="flex flex-col h-1/2 p-6 bg-yellow-400 rounded-md">
+                            <img class="absolute -top-10" width="64" height="64"
+                                src="https://img.icons8.com/arcade/64/000000/quote-left.png" alt="quote-left" />
+                            <p id="text5" class="font-medium">IslamSphere membantu saya menggabungkan etika bisnis
+                                Islam
+                                dengan
+                                kesuksesan usaha. Materi ekonomi mereka memberikan pandangan yang lebih dalam!</p>
+                            <p id="textmore5" class="hidden mt-5 font-medium">
+                                Sebagai pemilik usaha kecil, saya selalu mencari cara untuk menggabungkan etika bisnis
+                                Islam dengan kesuksesan usaha. IslamSphere telah memberikan jawaban atas pertanyaan
+                                saya. Materi-materi ekonomi mereka memberikan pandangan yang lebih dalam tentang
+                                bagaimana bisnis dapat berjalan dengan sesuai dengan prinsip-prinsip Islam. Saya merasa
+                                terbantu dalam membuat keputusan yang lebih etis dan berkelanjutan.
+                            </p>
+                            <a onclick="readmoretoogle(5)" id="readmore5"
+                                class="font-bold text-blue-700 italic cursor-pointer hover:text-blue-900">baca
+                                selengkapnya</a>
+                            <a onclick="closetoogle(5)" id="close5"
+                                class="hidden font-bold text-blue-700 italic cursor-pointer hover:text-blue-900">tutup</a>
+                        </div>
+                        <div class="flex items-center justify-center pb-10 ml-5 gap-3 mt-8">
+                            <img id="avatar5" src="../src/img/avatar5.svg" class="rounded-full w-1/3" alt="profile1">
+                            <div class="flex flex-col">
+                                <p class="font-semibold text-lg text-blue-800">Joko</p>
+                                <p class="font-normal">25 Tahun</p>
+                                <p class="font-semibold">Pemilik Usaha Kecil</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="cardtest6"
+                        class="hidden relative bg-slate-300 shadow-lg shadow-slate-300 rounded-md w-11/12">
+                        <div id="box6" class="flex flex-col h-1/2 p-6 bg-yellow-400 rounded-md">
+                            <img class="absolute -top-10" width="64" height="64"
+                                src="https://img.icons8.com/arcade/64/000000/quote-left.png" alt="quote-left" />
+                            <p id="text6" class="font-medium">IslamSphere memberikan solusi dengan kursus online
+                                dan sumber
+                                daya
+                                yang fleksibel. Saya merasa diberdayakan untuk terus belajar dan berkembang, bahkan di
+                                tengah
+                                rutinitas pekerjaan yang padat!</p>
+                            <p id="textmore6" class="hidden mt-5 font-medium">
+                                Sebagai karyawan pemerintah yang sibuk, saya selalu mencari cara untuk terus
+                                meningkatkan keterampilan saya. IslamSphere memberikan solusi dengan kursus online
+                                dan sumber daya yang fleksibel. Saya dapat mengakses materi pendidikan mereka kapan saja
+                                dan di mana saja. Saya merasa diberdayakan untuk terus belajar dan berkembang, bahkan di
+                                tengah-tengah rutinitas pekerjaan yang padat.
+                            </p>
+                            <a onclick="readmoretoogle(6)" id="readmore6"
+                                class="font-bold text-blue-700 italic cursor-pointer hover:text-blue-900">baca
+                                selengkapnya</a>
+                            <a onclick="closetoogle(6)" id="close6"
+                                class="hidden font-bold text-blue-700 italic cursor-pointer hover:text-blue-900">tutup</a>
+                        </div>
+                        <div class="flex items-center justify-center pb-10 ml-5 gap-3 mt-8">
+                            <img id="avatar6" src="../src/img/avatar6.svg" class="rounded-full w-1/3" alt="profile1">
+                            <div class="flex flex-col">
+                                <p class="font-semibold text-lg text-blue-800">Achmad</p>
+                                <p class="font-normal">30 Tahun</p>
+                                <p class="font-semibold">Karyawan Pemerintah</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="morecard" onclick="morecard(4)"
+                    class="flex items-center justify-center text-blue-600 text-lg font-bold gap-1 cursor-pointer hover:text-blue-800 transition duration-300 ease-in-out">
+                    <p id="morecardtext" class="font-bold">Cerita Lainnya</p>
+                    <ion-icon id="arrowicon" name="chevron-down"></ion-icon>
+                </div>
+            </div>
+        </article>
+    </section>
+    <!-- end section testimonial -->
+
+    <!-- FAQ section -->
+    <article class="mt-16 max-w-screen-xl mx-auto px-5">
+        <div class="flex flex-col items-center justify-center text-center">
+            <h2 class="font-bold text-4xl md:text-5xl mt-5 tracking-tight">
+                Sering Ditanyakan
+            </h2>
+            <p class="text-neutral-500 text-xl mt-3">
+                Pertanyaan Seputar IslamSphere
+            </p>
+        </div>
+        <div class="grid divide-y divide-neutral-200 max-w-full mx-auto mt-8">
+            <div class="py-3">
+                <details class="group bg-slate-50 rounded py-5 px-8 border-2 border-white shadow-md">
+                    <summary class="flex justify-between items-center font-medium cursor-pointer list-none">
+                        <span>Apa yang membedakan IslamSphere dari platform pendidikan lainnya?</span>
+                        <span class="transition group-open:rotate-180">
+                            <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24"
+                                width="24">
+                                <path d="M6 9l6 6 6-6"></path>
+                            </svg>
+                        </span>
+                    </summary>
+                    <p class="text-neutral-600 mt-3 group-open:animate-fadeIn">
+                        IslamSphere unik karena fokus pada pendekatan holistik yang menyelaraskan nilai-nilai Islam
+                        dengan pengetahuan modern. Kami menyediakan beragam kategori pendidikan untuk membantu pengguna
+                        tumbuh dalam iman dan ilmu.
+                    </p>
+                </details>
+            </div>
+            <div class="py-3">
+                <details class="group bg-slate-50 rounded py-5 px-8 border-2 border-white shadow-md">
+                    <summary class="flex justify-between items-center font-medium cursor-pointer list-none">
+                        <span>Apakah IslamSphere menyediakan sumber daya pendidikan untuk anak-anak?</span>
+                        <span class="transition group-open:rotate-180">
+                            <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24"
+                                width="24">
+                                <path d="M6 9l6 6 6-6"></path>
+                            </svg>
+                        </span>
+                    </summary>
+                    <p class="text-neutral-600 mt-3 group-open:animate-fadeIn">
+                        Ya, IslamSphere memiliki kategori khusus untuk "Pendidikan Anak" dengan materi pendidikan
+                        yang dirancang khusus untuk anak-anak, membantu mereka belajar sambil bersenang-senang.
+                    </p>
+                </details>
+            </div>
+            <div class="py-3">
+                <details class="group bg-slate-50 rounded py-5 px-8 border-2 border-white shadow-md">
+                    <summary class="flex justify-between items-center font-medium cursor-pointer list-none">
+                        <span>Apakah IslamSphere mendukung pembelajaran berkelanjutan untuk remaja dan
+                            dewasa?</span>
+                        <span class="transition group-open:rotate-180">
+                            <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24"
+                                width="24">
+                                <path d="M6 9l6 6 6-6"></path>
+                            </svg>
+                        </span>
+                    </summary>
+                    <p class="text-neutral-600 mt-3 group-open:animate-fadeIn">
+                        Tentu saja, kami menyediakan kategori pendidikan yang berfokus pada remaja dan dewasa.
+                        Materi-materi ini dirancang untuk mendukung pertumbuhan dan perkembangan di setiap tahap
+                        kehidupan.
+                    </p>
+                </details>
+            </div>
+            <div class="py-3">
+                <details class="group bg-slate-50 rounded py-5 px-8 border-2 border-white shadow-md">
+                    <summary class="flex justify-between items-center font-medium cursor-pointer list-none">
+                        <span>Bagaimana saya dapat berpartisipasi dalam komunitas pembelajaran di IslamSphere</span>
+                        <span class="transition group-open:rotate-180">
+                            <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24"
+                                width="24">
+                                <path d="M6 9l6 6 6-6"></path>
+                            </svg>
+                        </span>
+                    </summary>
+                    <p class="text-neutral-600 mt-3 group-open:animate-fadeIn">
+                        Anda dapat bergabung dengan komunitas pembelajaran kami dengan mendaftar dan menjadi anggota
+                        situs web IslamSphere. Di sana, Anda dapat berinteraksi dengan sesama pengguna, berbagi
+                        pengalaman, dan mendapatkan dukungan.
+                    </p>
+                </details>
+            </div>
+            <div class="py-3">
+                <details class="group bg-slate-50 rounded py-5 px-8 border-2 border-white shadow-md">
+                    <summary class="flex justify-between items-center font-medium cursor-pointer list-none">
+                        <span>Apakah IslamSphere memberikan kursus online yang bersifat berbayar?</span>
+                        <span class="transition group-open:rotate-180">
+                            <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24"
+                                width="24">
+                                <path d="M6 9l6 6 6-6"></path>
+                            </svg>
+                        </span>
+                    </summary>
+                    <p class="text-neutral-600 mt-3 group-open:animate-fadeIn">
+                        Sebagian besar materi kursus online kami dapat diakses secara gratis melalui Islampedia. Namun,
+                        kami juga menyediakan
+                        beberapa kursus khusus yang bersifat berbayar. Informasi lebih lanjut dapat ditemukan di
+                        platform kami.
+                    </p>
+                </details>
+            </div>
+            <div class="py-3">
+                <details class="group bg-slate-50 rounded py-5 px-8 border-2 border-white shadow-md">
+                    <summary class="flex justify-between items-center font-medium cursor-pointer list-none">
+                        <span>Kapan waktunya belajar?</span>
+                        <span class="transition group-open:rotate-180">
+                            <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24"
+                                width="24">
+                                <path d="M6 9l6 6 6-6"></path>
+                            </svg>
+                        </span>
+                    </summary>
+                    <p class="text-neutral-600 mt-3 group-open:animate-fadeIn">
+                        Akses materi dan kuis dimulai setiap hari Jum’at pukul 00.00 dan berakhir Kamis pukul 23.59.
+                        Kuis hanya dapat dikerjakan setelah selesai mendengarkan materi.
+                    </p>
+                </details>
+            </div>
+            <div class="py-3">
+                <details class="group bg-slate-50 rounded py-5 px-8 border-2 border-white shadow-md">
+                    <summary class="flex justify-between items-center font-medium cursor-pointer list-none">
+                        <span>Bagaimana cara saya menghubungi dukungan?</span>
+                        <span class="transition group-open:rotate-180">
+                            <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24"
+                                width="24">
+                                <path d="M6 9l6 6 6-6"></path>
+                            </svg>
+                        </span>
+                    </summary>
+                    <p class="text-neutral-600 mt-3 group-open:animate-fadeIn">
+                        Jika Anda memerlukan bantuan dengan platform atau memiliki pertanyaan lain, Anda dapat
+                        menghubungi
+                        tim dukungan dengan mengirimkan permintaan dukungan melalui situs web atau melalui email
+                        dukungan nicoachmad15@gmail.com
+                    </p>
+                </details>
+            </div>
+        </div>
+    </article>
+    <!-- end FAQ section -->
+
+    <!-- quotes -->
+    <article class="mt-16 bg-no-repeat bg-cover"
+        style="background-image: url(../src/img/gr-stocks-FsIMM3-S3_A-unsplash.jpg);">
+        <div class="container w-full mx-auto flex flex-col lg:flex-row justify-center items-center gap-5 py-10">
+            <img class="w-1/2 rounded-md ring-2 ring-slate-300 shadow-lg shadow-slate-600"
+                src="../src/img/Al-ghazali.jpeg" alt="Al-Ghazali">
+            <div class="lato p-10 w-full text-white bg-slate-50 bg-opacity-20 rounded-md">
+                <p class="py-5 text-3xl font-semibold">Bersungguh-sungguhlah engkau dalam menuntut ilmu, jauhilah
+                    kemalasan dan
+                    kebosanan kerana jika tidak demikian engkau akan berada dalam bahaya kesesatan.</p>
+                <p class="lato py-5 text-3xl font-semibold">- Imam Al-Ghazali</p>
+            </div>
+        </div>
+    </article>
+    <!-- end quotes -->
+
+    <!-- footer -->
+    <footer class="poppins w-full mt-16 border-t-2 bg-gradient-to-l from-blue-500 via-blue-400 to-cyan-500">
+        <div class="container mx-auto">
+            <div class="container mx-auto border-b-2 py-5 px-4">
+                <div class="flex flex-col lg:flex-row justify-around items-center">
+                    <img class="w-[25vw] md:w-[15vw]" src="../src/img/logonya.png" alt="">
+                    <p class=" text-base lg:text-lg text-center font-medium py-5 text-white">Membimbing Langkah,
+                        Mencerahkan Hati,
+                        Di Mana Ilmu
+                        dan Iman
+                        Bersatu!
+                    </p>
+                    <div class="flex items-center gap-5">
+                        <div class="relative group">
+                            <a class="group-hover:bg-opacity-75 transition-all"
+                                href="https://www.instagram.com/nikoachmad_koo?igsh=cHkxMzBrdWVydWI="><img
+                                    class="w-11/12" src="../src/img/skill-icons_instagram.svg" alt="igicn"></a>
+                            <p
+                                class="absolute -top-2/3 left-0 text-white bg-slate-600 opacity-0 group-hover:opacity-100 transition-all">
+                                Instagram</p>
+                        </div>
+                        <div class="relative group">
+                            <a class="group-hover:bg-opacity-75 transition-all"
+                                href="https://www.facebook.com/niko.achmad.3?mibextid=kFxxJD"><img class="w-11/12"
+                                    src="../src/img/logos_facebook.svg" alt="fbicn"></a>
+                            <p
+                                class="absolute -top-2/3 left-0 text-white bg-slate-600 opacity-0 group-hover:opacity-100 transition-all">
+                                Facebook</p>
+                        </div>
+                        <div class="relative group">
+                            <a class="group-hover:bg-opacity-75 transition-all" href="#"><img class="w-11/12"
+                                    src="../src/img/logos_youtube-icon.svg" alt="yticn"></a>
+                            <p
+                                class="absolute -top-2/3 left-0 text-white bg-slate-600 opacity-0 group-hover:opacity-100 transition-all">
+                                Youtube</p>
+                        </div>
+                        <div class="relative group">
+                            <a class="group-hover:bg-opacity-75 transition-all" href="#"><img class="w-11/12"
+                                    src="../src/img/logos_tiktok-icon.svg" alt="tticn"></a>
+                            <p
+                                class="absolute -top-2/3 left-0 text-white bg-slate-600 opacity-0 group-hover:opacity-100 transition-all">
+                                Tiktok</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container mx-auto border-b-2 py-10 flex flex-col lg:flex-row justify-evenly">
+                <nav class="px-2 text-center lg:text-left">
+                    <h2 class="text-lg text-white font-bold">Kategori Pendidikan</h2>
+                    <ul class="mt-6 mb-10">
+                        <li class="text-lg py-2 hover:text-neutral-50"><a href="">Pendidikan Anak</a></li>
+                        <li class="text-lg py-2 hover:text-neutral-50"><a href="">Pendidikan Remaja</a></li>
+                        <li class="text-lg py-2 hover:text-neutral-50"><a href="">Pendidikan Dewasa</a></li>
+                    </ul>
+                    <h2 class="text-lg text-white font-bold">Informasi Hukum</h2>
+                    <ul class="mt-6 mb-10">
+                        <li class="text-lg py-2 hover:text-neutral-50"><a href="">Syarat&Ketentuan</a></li>
+                        <li class="text-lg py-2 hover:text-neutral-50"><a href="">Kebijakan Privasi</a></li>
+                    </ul>
+                </nav>
+                <nav class="px-2 text-center lg:text-left">
+                    <h2 class="text-lg text-white font-bold">Profil IslamSphere</h2>
+                    <ul class="mt-6 mb-10">
+                        <li class="text-lg py-2 hover:text-neutral-50"><a href="">Tentang IslamSphere</a></li>
+                        <li class="text-lg py-2 hover:text-neutral-50"><a href="">Karir</a></li>
+                        <li class="text-lg py-2 hover:text-neutral-50"><a href="">IslamSphere Blog</a></li>
+                        <li class="text-lg py-2 hover:text-neutral-50"><a href="">Dukungan Pengguna</a></li>
+                    </ul>
+                </nav>
+                <nav class="px-2 text-center">
+                    <h2 class="text-lg text-white font-bold">Yayasan IslamSphere Indonesia</h2>
+                    <p class="mt-6 hover:text-neutral-50 hover:underline hover:underline-offset-2"><a href="">Office No.
+                            56,
+                            Jalan Raya Pakisaji, Kabupaten Malang, Jawa Timur(65162)</a></p>
+                    <ul class="flex flex-col lg:block items-center mt-6 mb-10">
+                        <li class="py-2 hover:text-slate-700"><a class="flex gap-5" href="https://wa.me/+6289673457965">
+                                <ion-icon size="large" name="call-outline"></ion-icon>
+                                <p> 0896 73457 965 <span class="font-bold">(Office)</span> </p>
+                            </a></li>
+                        <li class="py-2 hover:text-slate-700"><a class="flex gap-5"
+                                href="mailto:nicoachmad15@gmail.com">
+                                <ion-icon size="large" name="mail-outline"></ion-icon>
+                                <p>nicoachmad15@gmail.com</p>
+                            </a></li>
+                        <li class="py-2 hover:text-slate-700"><a class="flex gap-5" href="https://wa.me/+6289673457965">
+                                <ion-icon size="large" name="logo-whatsapp"></ion-icon>
+                                <p>089673457965</p>
+                            </a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="poppins container mx-auto py-10">
+                <p class="px-5 md:text-lg font-extrabold text-white">© Copyright 2024 - IslamSphere</p>
+            </div>
+        </div>
+    </footer>
+    <!-- end footer -->
+    <a href="https://wa.me/+6289673457965" class="fixed bg-slate-200 ring-4 ring-stone-800 hover:bg-slate-400 rounded-full bottom-10 right-5 p-2">
+        <img class="w-[10vw] md:w-[5vw]" src="../src/img/face-agent.svg" alt="">
+    </a>
+
+    <!-- script here -->
+    <script src="../src/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
